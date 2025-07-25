@@ -21,8 +21,8 @@
 >
     <!-- Header -->
     <header>
-        <div class="container-fluid d-flex justify-content-between align-items-start p-3 sticky-top shadow-sm bg-white mb-4">
-            <div class="d-flex flex-column align-items-center">
+        <div class="container-fluid d-flex justify-content-between align-items-center p-3 sticky-top shadow-sm bg-white mb-4">
+            <div class="d-flex flex-column align-items-center ms-lg-4">
                 <img
                     src="{{ asset('images/logo.png') }}"
                     alt="Shop Cars Logo"
@@ -30,23 +30,24 @@
                     style="height: 50px; width: 50px"
                 />
                 <div class="mt-1 text-center text-muted fw-semibold">
-                    tyre shop !!
+                    <!-- Optional text under logo -->
                 </div>
             </div>
 
+            <!-- Auth Links -->
             @if (Route::has('login'))
-                <div class="text-end">
+                <div class="d-flex align-items-center gap-3 me-lg-4">
                     @auth
                         <a
                             href="{{ url('/dashboard') }}"
-                            class="fw-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                            class="fw-semibold text-dark text-decoration-none"
                         >
                             Dashboard
                         </a>
                     @else
                         <a
                             href="{{ route('login') }}"
-                            class="fw-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                            class="fw-semibold text-dark text-decoration-none"
                         >
                             Log in
                         </a>
@@ -54,7 +55,7 @@
                         @if (Route::has('register'))
                             <a
                                 href="{{ route('register') }}"
-                                class="ms-3 fw-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                                class="fw-semibold text-dark text-decoration-none"
                             >
                                 Register
                             </a>
@@ -69,7 +70,10 @@
     <main class="flex-grow-1 container d-flex">
         <div class="container">
             <div class="hero-section bg-cover-bg-center h-screen flex flex-col items-center justify-start text-white"
-                 style="background-image: url('{{ asset('images/homepage-baner.jpg') }}'); background-position: center; background-size: cover; height: 400px; padding-top: 40px;">
+                 style="background-image: url('{{ asset('images/homepage-baner.jpg') }}');
+                 background-position: center;
+                 background-size: cover; height: 400px; padding-top: 40px;"
+            >
                 <h1 class="text-center">Quality Tyres for Every Drive</h1>
                 <p class="text-center">Reliable tyres for safety, performance, and all weather conditions.</p>
             </div>
