@@ -20,53 +20,59 @@
     class="min-vh-100 bg-center bg-gray-100 dark:bg-gray-900 selection:bg-red-500 selection:text-white d-flex flex-column"
 >
     <!-- Header -->
-    <header class="d-flex justify-content-between align-items-start p-3 position-relative">
-        <div class="d-flex flex-column align-items-center">
-            <img
-                src="{{ asset('images/logo.png') }}"
-                alt="Shop Cars Logo"
-                class="rounded"
-                style="height: 50px; width: 50px"
-            />
-            <div class="mt-1 text-center text-muted" style="font-weight: 600;">
-                tyre shop !!
+    <header>
+        <div class="container-fluid d-flex justify-content-between align-items-start p-3 sticky-top shadow-sm bg-white mb-4">
+            <div class="d-flex flex-column align-items-center">
+                <img
+                    src="{{ asset('images/logo.png') }}"
+                    alt="Shop Cars Logo"
+                    class="rounded"
+                    style="height: 50px; width: 50px"
+                />
+                <div class="mt-1 text-center text-muted fw-semibold">
+                    tyre shop !!
+                </div>
             </div>
-        </div>
 
-        @if (Route::has('login'))
-            <div class="text-end">
-                @auth
-                    <a
-                        href="{{ url('/dashboard') }}"
-                        class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
-                    >
-                        Dashboard
-                    </a>
-                @else
-                    <a
-                        href="{{ route('login') }}"
-                        class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
-                    >
-                        Log in
-                    </a>
-
-                    @if (Route::has('register'))
+            @if (Route::has('login'))
+                <div class="text-end">
+                    @auth
                         <a
-                            href="{{ route('register') }}"
-                            class="ms-3 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                            href="{{ url('/dashboard') }}"
+                            class="fw-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
                         >
-                            Register
+                            Dashboard
                         </a>
-                    @endif
-                @endauth
-            </div>
-        @endif
+                    @else
+                        <a
+                            href="{{ route('login') }}"
+                            class="fw-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                        >
+                            Log in
+                        </a>
+
+                        @if (Route::has('register'))
+                            <a
+                                href="{{ route('register') }}"
+                                class="ms-3 fw-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                            >
+                                Register
+                            </a>
+                        @endif
+                    @endauth
+                </div>
+            @endif
+        </div>
     </header>
 
     <!-- Main Content -->
     <main class="flex-grow-1 container d-flex">
         <div class="container">
-            <h1 class="text-center align-items-start">Welcome to our shop</h1>
+            <div class="hero-section bg-cover-bg-center h-screen flex items-center justify-center text-white"
+                 style="background-image: url('{{ asset('images/homepage-baner.jpg') }}'); background-position: center; background-size: cover; height: 400px;"
+            >
+                <h1 class="text-center align-items-start">Welcome to our shop</h1>
+            </div>
             <div class="mt-8">
                 <h2>Featured Products</h2>
                 <div class="grid grid-cols-2 d-lg-grid-cols-4 gap-6">
