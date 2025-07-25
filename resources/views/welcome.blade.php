@@ -85,7 +85,7 @@
                         <h5>{{$category->name}}</h5>
                         <p>{{$category->description}}</p>
                         <p>{{$category->price}}</p>
-                        <a href="{{route('home')}}">View Categories</a>
+                        <a href="{{route('categories.show',$category->id)}}">View Categories</a>
                     @endforeach
                 </div>
             </div>
