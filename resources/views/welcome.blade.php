@@ -68,10 +68,10 @@
     <!-- Main Content -->
     <main class="flex-grow-1 container d-flex">
         <div class="container">
-            <div class="hero-section bg-cover-bg-center h-screen flex items-center justify-center text-white"
-                 style="background-image: url('{{ asset('images/homepage-baner.jpg') }}'); background-position: center; background-size: cover; height: 400px;"
-            >
-                <h1 class="text-center align-items-start">Welcome to our shop</h1>
+            <div class="hero-section bg-cover-bg-center h-screen flex flex-col items-center justify-start text-white"
+                 style="background-image: url('{{ asset('images/homepage-baner.jpg') }}'); background-position: center; background-size: cover; height: 400px; padding-top: 40px;">
+                <h1 class="text-center">Quality Tyres for Every Drive</h1>
+                <p class="text-center">Reliable tyres for safety, performance, and all weather conditions.</p>
             </div>
             <div class="mt-8">
                 <h2>Featured Products</h2>
