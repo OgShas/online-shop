@@ -74,7 +74,7 @@
                         <h5>{{$product->name}}</h5>
                         <p>{{$product->description}}</p>
                         <p>{{$product->price}}</p>
-                        <a href="{{route('home')}}">View Product</a>
+                        <a href="{{ route('products.show', $product->id) }}">View Product</a>
                     @endforeach
                 </div>
             </div>
