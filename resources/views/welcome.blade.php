@@ -104,7 +104,7 @@
                                 <p class="text-blue-600 font-semibold mb-4">{{ $product->price }}</p>
                                 <a
                                     href="{{ route('products.show', $product->id) }}"
-                                    class="text-sm text-white bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded"
+                                    class="text-sm text-blsck bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded"
                                 >
                                     View Product
                                 </a>
