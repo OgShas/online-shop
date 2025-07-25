@@ -75,8 +75,8 @@
                  background-position: center;
                  background-size: cover; height: 400px; padding-top: 40px;"
             >
-                <h1 class="text-center">Quality Tyres for Every Drive</h1>
-                <p class="text-center">Reliable tyres for safety, performance, and all weather conditions.</p>
+                <h1 class="text-center">Quality Tires for Every Drive</h1>
+                <p class="text-center">Reliable tires for safety, performance, and all weather conditions.</p>
                 <div class="text-center">
                     <a href="<?php echo e(route('products.index')); ?>" class="fs-4 font-bold underline mt-2 text-white text-center">
                         Shop Now
