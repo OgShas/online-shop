@@ -86,9 +86,9 @@
                     </a>
                 </div>
             </div>
-            <div class="mt-8">
-                <h2>Featured Products</h2>
-                <div class="row">
+            <div class="mt-5">
+                <h2 class="text-center">Featured Products</h2>
+                <div class="row mt-4">
                     @foreach($products as $product)
                         <div class="col-12 col-md-4 mb-4">
                             <div
@@ -113,8 +113,8 @@
                     @endforeach
                 </div>
             </div>
-            <div class="mt-8">
-                <h2>Categories</h2>
+            <div class="mt-5">
+                <h2 class="mt-4 text-center">Categories</h2>
                 <div class="row">
                     @foreach($categories as $category)
                         <div class="col-12 col-md-4 mb-4">
