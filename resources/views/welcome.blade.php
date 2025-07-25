@@ -21,7 +21,8 @@
 >
     <!-- Header -->
     <header>
-        <div class="container-fluid d-flex justify-content-between align-items-center p-3 sticky-top shadow-sm bg-white mb-4">
+        <div
+            class="container-fluid d-flex justify-content-between align-items-center p-3 sticky-top shadow-sm bg-white mb-4">
             <div class="d-flex flex-column align-items-center ms-lg-4">
                 <a href="{{ url('/') }}" class="text-decoration-none">
                     <img
@@ -70,38 +71,70 @@
     <!-- Main Content -->
     <main class="flex-grow-1 container d-flex">
         <div class="container">
-            <div class="hero-section bg-cover-bg-center h-screen flex flex-col items-center justify-start text-white rounded-3"
-                 style="background-image: url('{{ asset('images/homepage-baner.jpg') }}');
+            <div
+                class="hero-section bg-cover-bg-center h-screen flex flex-col items-center justify-start text-white rounded-3"
+                style="background-image: url('{{ asset('images/homepage-baner.jpg') }}');
                  background-position: center;
                  background-size: cover; height: 400px; padding-top: 40px;"
             >
                 <h1 class="text-center">Quality Tires for Every Drive</h1>
                 <p class="text-center">Reliable tires for safety, performance, and all weather conditions.</p>
                 <div class="text-center">
-                    <a href="<?php echo e(route('products.index')); ?>" class="fs-4 font-bold underline mt-2 text-white text-center">
+                    <a href="<?php echo e(route('products.index')); ?>"
+                       class="fs-4 font-bold underline mt-2 text-white text-center">
                         Shop Now
                     </a>
                 </div>
             </div>
             <div class="mt-8">
                 <h2>Featured Products</h2>
-                <div class="grid grid-cols-2 d-lg-grid-cols-4 gap-6">
+                <div class="row">
                     @foreach($products as $product)
-                        <h5>{{$product->name}}</h5>
-                        <p>{{$product->description}}</p>
-                        <p>{{$product->price}}</p>
-                        <a href="{{ route('products.show', $product->id) }}">View Product</a>
+                        <div class="col-12 col-md-4 mb-4">
+                            <div
+                                class="bg-white border rounded-lg p-4 flex flex-col items-center text-center max-w-sm mx-auto">
+                                <img
+                                    class="w-full h-40 object-cover rounded-3 mb-4"
+                                    style="height: 150px"
+                                    src="{{ $product->image_url }}"
+                                    alt="{{ $product->name }}"
+                                >
+                                <h5 class="text-lg font-medium mb-2">{{ $product->name }}</h5>
+                                <p class="text-gray-600 mb-2">{{ $product->description }}</p>
+                                <p class="text-blue-600 font-semibold mb-4">{{ $product->price }}</p>
+                                <a
+                                    href="{{ route('products.show', $product->id) }}"
+                                    class="text-sm text-white bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded"
+                                >
+                                    View Product
+                                </a>
+                            </div>
+                        </div>
                     @endforeach
                 </div>
             </div>
             <div class="mt-8">
                 <h2>Categories</h2>
-                <div class="grid grid-cols-2 d-lg-grid-cols-4 gap-6">
+                <div class="row">
                     @foreach($categories as $category)
-                        <h5>{{$category->name}}</h5>
-                        <p>{{$category->description}}</p>
-                        <p>{{$category->price}}</p>
-                        <a href="{{route('categories.show',$category->id)}}">View Categories</a>
+                        <div class="col-12 col-md-4 mb-4">
+                            <div class="card h-100">
+                                <img
+                                    src="{{$category->image_url}}"
+                                    class="card-img-top"
+                                    alt="{{$category->name}}"
+                                    style="height: 200px; object-fit: cover;"
+                                >
+                                <div class="card-body text-center d-flex flex-column">
+                                    <h5 class="card-title">{{$category->name}}</h5>
+                                    <p class="card-text text-muted">{{$category->description}}</p>
+                                    <p class="text-primary font-weight-bold">{{$category->price}}</p>
+                                    <a href="{{route('categories.show',$category->id)}}" class="btn btn-primary mt-auto">
+                                        View Categories
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     @endforeach
                 </div>
             </div>
