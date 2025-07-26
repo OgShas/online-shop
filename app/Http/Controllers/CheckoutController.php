@@ -20,6 +20,7 @@ class CheckoutController extends Controller
     public function process(Request $request)
     {
         $request->validate([
+            'email' => 'required|email',
             'shipping_address' => 'required|string|max:255',
             'city' => 'required|string|max:255',
             'state' => 'required|string|max:255',
@@ -49,6 +50,7 @@ class CheckoutController extends Controller
 
         $order = Order::create([
             'user_id' => Auth::id(),
+            'email' => $request->input('email'),
             'shipping_address' => $fullAddress,
             'total_amount' => $totalAmount,
             'status' => 'pending',

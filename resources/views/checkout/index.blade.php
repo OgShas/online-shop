@@ -17,6 +17,11 @@
         @csrf
 
         <div class="mb-4">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" required>
+        </div>
+
+        <div class="mb-4">
             <label for="shipping_address">Street Address</label>
             <input type="text" name="shipping_address" id="shipping_address" required>
         </div>
