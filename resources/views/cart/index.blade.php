@@ -53,7 +53,7 @@
             </tbody>
         </table>
         <div class="mt-4">
-            <a href="#">Process To Checkout</a>
+            <a href="{{route('checkout.show')}}">Process To Checkout</a>
         </div>
     @endif
 </div>
