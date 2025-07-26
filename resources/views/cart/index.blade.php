@@ -24,7 +24,7 @@
             <tbody>
             @foreach($cartItems as $cartItem)
                 <tr>
-                    <td>{{$cartItems->product->name}}</td>
+                    <td>{{$cartItem->product->name}}</td>
                     <td>
                         <form
                             action="{{route('cart.update',$cartItem->id)}}"
