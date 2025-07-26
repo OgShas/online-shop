@@ -36,6 +36,7 @@ class ProductController extends Controller
             'description' => 'required|string',
             'price' => 'required|numeric',
             'category_id' => 'required|exists:categories,id',
+            'quantity' => 'required|integer|min:0',
             'image_url' => 'nullable|string'
         ]);
 
@@ -43,6 +44,7 @@ class ProductController extends Controller
             'name' => request('name'),
             'description' => request('description'),
             'price' => request('price'),
+            'quantity' => request('quantity'),
             'category_id' => request('category_id'),
             'image_url' => request('image_url')
         ]);

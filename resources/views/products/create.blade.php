@@ -31,6 +31,10 @@
             <textarea name="description" id="description" class="w-full border rounded-3"></textarea>
         </div>
         <div class="mb-4">
+            <label for="quantity" class="text-gray-400">Product quantity</label>
+            <input type="number" name="quantity" id="quantity" min="0" required>
+        </div>
+        <div class="mb-4">
             <label for="category_id" class="text-gray-400">Category Id</label>
             <select name="category_id" id="category_id" class="w-full border rounded-3">
                 @foreach($category as $categories)
