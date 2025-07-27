@@ -30,14 +30,14 @@
                 <a href="{{ route('products.show', $product->id) }}">View Product</a>
             </div>
         </div>
-{{--        @if(Auth::ckeck() && Auth::user()->is_admin)--}}
+        @if(Auth::check() && \Illuminate\Support\Facades\Auth::user()->is_admin)
             <a href="{{route('admin.products.edit',$product->id)}}">Edit Product</a>
             <form action="{{route('admin.products.destroy', $product->id)}}" method="POST">
                 @csrf
                 @method('DELETE')
                 <button type="submit">Delete Product</button>
             </form>
-{{--        @endif--}}
+        @endif
     @endforeach
 </div>
 
