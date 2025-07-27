@@ -27,7 +27,7 @@
                 <div class="bg-white shadow rounded-lg p-3 mb-4">
                     <h5 class="text-lg font-bold">{{ $category->name }}</h5>
                     <p class="text-gray-700">{{ $category->description }}</p>
-                    <a href="{{ route('categories.show', $category->id) }}">Edit Category</a>
+                    <a href="{{ route('admin.category.edit', $category->id) }}">Edit Category</a>
                     <form action="{{route('admin.category.destroy', $category->id)}}" method="POST">
                         @csrf
                         @method('DELETE')
