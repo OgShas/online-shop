@@ -30,6 +30,11 @@
                 <a href="{{ route('products.show', $product->id) }}">View Product</a>
             </div>
         </div>
+        <a href="{{route('admin.products.edit',$product->id)}}">Edit Product</a>
+        <form action="{{route('admin.products.destroy', $product->id)}}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button type="submit">Delete Product</button>
     @endforeach
 </div>
 

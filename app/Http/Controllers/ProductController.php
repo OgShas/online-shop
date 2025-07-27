@@ -64,7 +64,8 @@ class ProductController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $product = Product::findOrFail($id);
+        return view('products.edit', compact('product'));
     }
 
     /**
@@ -72,14 +73,27 @@ class ProductController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'name' => 'required|string',
+            'description' => 'required|string',
+            'price' => 'required|numeric',
+            'category_id' => 'required|exists:categories,id',
+            'quantity' => 'required|integer|min:0',
+            'image_url' => 'nullable|string'
+        ]);
+
+        $product = Product::findOrFail($id);
+        $product->update($request->all());
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        $product = Product::findOrFail($id);
+        $product->delete();
+
+        return redirect()->route('products.index');
     }
 }
