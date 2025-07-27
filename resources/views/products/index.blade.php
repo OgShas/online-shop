@@ -35,6 +35,7 @@
             @csrf
             @method('DELETE')
             <button type="submit">Delete Product</button>
+        </form>
     @endforeach
 </div>
 
