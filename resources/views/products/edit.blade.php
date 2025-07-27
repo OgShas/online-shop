@@ -24,6 +24,10 @@
             <input type="text" name="name" id="name" value="{{$product->name}}" class="w-full border rounded-3">
         </div>
         <div class="mb-4">
+            <label for="category_id" class="text-gray-400">Category</label>
+            <input type="number" name="category_id" id="category_id" value="{{ $product->category_id }}" class="w-full border rounded-3">
+        </div>
+        <div class="mb-4">
             <label for="price" class="text-gray-400">Product Price</label>
             <input type="number" name="price" id="price" value="{{$product->price}}" class="w-full border rounded-3">
         </div>
