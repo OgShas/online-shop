@@ -9,7 +9,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $orders = Order::with('user')->get();
+        $orders = Order::where('user_id', auth()->id())->with('user')->get();
         return view('dashboard', compact('orders'));
     }
 }
