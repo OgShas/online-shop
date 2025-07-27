@@ -33,7 +33,7 @@
         </div>
         <div class="mb-4">
             <label for="description" class="text-gray-400">Product Description</label>
-            <textarea name="description" id="description" {{$product->description}} class="w-full border rounded-3"></textarea>
+            <textarea name="description" id="description" class="w-full border rounded-3">{{ $product->description }}</textarea>
         </div>
         <div class="mb-4">
             <label for="quantity" class="text-gray-400">Product quantity</label>
