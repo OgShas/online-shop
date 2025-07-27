@@ -1,3 +1,4 @@
+@php use App\Models\Category; @endphp
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,7 +26,13 @@
         </div>
         <div class="mb-4">
             <label for="category_id" class="text-gray-400">Category</label>
-            <input type="number" name="category_id" id="category_id" value="{{ $product->category_id }}" class="w-full border rounded-3">
+            <select name="category_id" id="category_id" class="w-full border rounded-3" required>
+                @foreach(Category::all() as $category)
+                    <option value="{{ $category->id }}" @if($product->category_id == $category->id) selected @endif>
+                        {{ $category->name }}
+                    </option>
+                @endforeach
+            </select>
         </div>
         <div class="mb-4">
             <label for="price" class="text-gray-400">Product Price</label>
@@ -33,7 +40,8 @@
         </div>
         <div class="mb-4">
             <label for="description" class="text-gray-400">Product Description</label>
-            <textarea name="description" id="description" class="w-full border rounded-3">{{ $product->description }}</textarea>
+            <textarea name="description" id="description"
+                      class="w-full border rounded-3">{{ $product->description }}</textarea>
         </div>
         <div class="mb-4">
             <label for="quantity" class="text-gray-400">Product quantity</label>
@@ -41,7 +49,8 @@
         </div>
         <div class="mb-4">
             <label for="image_url" class="text-gray-400">Image Url</label>
-            <input type="text" name="image_url" id="image_url" value="{{$product->image_url}}" class="w-full border rounded-3">
+            <input type="text" name="image_url" id="image_url" value="{{$product->image_url}}"
+                   class="w-full border rounded-3">
         </div>
         <button type="submit">Update</button>
     </form>
