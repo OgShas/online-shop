@@ -32,7 +32,7 @@
         </div>
         <div class="mb-4">
             <label for="quantity" class="text-gray-400">Product quantity</label>
-            <input type="number" name="quantity" id="quantity" min="0" required>
+            <input type="number" name="quantity" id="quantity" min="0" required value="{{ old('quantity') }}">
         </div>
         <div class="mb-4">
             <label for="category_id" class="text-gray-400">Category Id</label>
