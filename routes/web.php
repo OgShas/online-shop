@@ -25,15 +25,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::resource('products', ProductController::class);
-Route::resource('categories', CategoryController::class);
+Route::resource('products', ProductController::class)->only(['index', 'show']);
+Route::resource('categories', CategoryController::class)->only(['index', 'show']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware(AdminMiddleware::class)->prefix('admin')->name('admin.')->group(function () {
-    Route::get('/',[AdminController::class, 'index'])->name('dashboard');
+    Route::get('/', [AdminController::class, 'index'])->name('dashboard');
     Route::resource('products', ProductController::class);
     Route::resource('category', CategoryController::class);
     Route::resource('users', UserController::class);
