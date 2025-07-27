@@ -24,6 +24,7 @@
                      src="{{$category->image_url}}"
                      alt="{{$category->name}}"
                 >
+                @if(Auth::check() && \Illuminate\Support\Facades\Auth::user()->is_admin)
                 <div class="bg-white shadow rounded-lg p-3 mb-4">
                     <h5 class="text-lg font-bold">{{ $category->name }}</h5>
                     <p class="text-gray-700">{{ $category->description }}</p>
@@ -34,6 +35,7 @@
                         <button type="submit">Delete Product</button>
                     </form>
                 </div>
+                @endif
             </div>
         </div>
     @endforeach
