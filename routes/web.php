@@ -11,6 +11,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\AdminMiddleware;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,6 +26,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/redirect-after-login', function () {
+    $user = Auth::user();
+    if ($user->is_admin == 1) {
+        return redirect('/dashboard');
+    }
+    return redirect('/');
+})->middleware('auth');
 
 Route::resource('products', ProductController::class)->only(['index', 'show']);
 Route::resource('categories', CategoryController::class)->only(['index', 'show']);
