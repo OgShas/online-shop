@@ -1,3 +1,4 @@
+@php use Illuminate\Support\Facades\Auth; @endphp
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -35,8 +36,14 @@
                     <td class="py-2 px-4 border-b">{{$order->total_amount}}</td>
                     <td class="py-2 px-4 border-b">{{ucfirst($order->status)}}</td>
                     <td class="py-2 px-4 border-b">
-                        <a href="#">Edit</a>
-                        <a href="#">Delete</a>
+                        @if(Auth::check() && Auth::user()->is_admin)
+                            <a href="{{route('admin.orders.edit',$order->id)}}">Edit Order</a>
+                            <form action="{{route('admin.orders.destroy', $order->id)}}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit">Delete Order</button>
+                            </form>
+                        @endif
                     </td>
                 </tr>
             @endforeach
