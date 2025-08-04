@@ -25,8 +25,8 @@
 
             <select name="status" id="status" class="w-full bordere rounded p-2">
                 <option value="pending"{{$order->status=='pending' ? 'selected': '' }}>Pending</option>
-                <option value="pending"{{$order->status=='completed' ? 'selected': '' }}>Completed</option>
-                <option value="pending"{{$order->status=='canceled' ? 'canceled': '' }}>Canceled</option>
+                <option value="completed"{{$order->status=='completed' ? 'selected': '' }}>Completed</option>
+                <option value="canceled"{{$order->status=='canceled' ? 'canceled': '' }}>Canceled</option>
             </select>
         </div>
         <button type="submit">Update Order</button>

@@ -61,7 +61,7 @@ class OrderController extends Controller
         $order = Order::findOrFail($id);
         $order->update($request->all());
 
-        return redirect()->route('orders.index');
+        return redirect()->route('admin.orders.index');
     }
 
     /**
@@ -72,6 +72,6 @@ class OrderController extends Controller
         $order = Order::findOrFail($id);
         $order->delete();
 
-        return redirect()->route('orders.index');
+        return redirect()->route('admin.orders.index');
     }
 }
