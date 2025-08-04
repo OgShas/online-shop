@@ -45,7 +45,8 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $user = User::findOrFail($id);
+        return view('users.edit', compact('user'));
     }
 
     /**
@@ -53,7 +54,16 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255' . $id,
+            'is_admin' => 'boolean',
+        ]);
+
+        $user = User::findOrFail($id);
+        $user->update($request->all());
+
+        return redirect()->route('admin.users.index');
     }
 
     /**
@@ -61,6 +71,9 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $user = User::findOrFail($id);
+        $user->delete();
+
+        return redirect()->route('admin.users.index');
     }
 }
