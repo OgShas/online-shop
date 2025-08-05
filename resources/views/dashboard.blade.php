@@ -12,7 +12,7 @@
         <a href="{{ url('/admin/users') }}" class="btn btn-secondary">Manage Users</a>
     @endif
 
-    {{-- Cart Section for all users (including admins) --}}
+    {{-- Cart Section for all users --}}
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
