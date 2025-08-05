@@ -11,6 +11,7 @@
         <a href="{{ url('/admin/orders') }}" class="btn btn-primary me-2">Manage Orders</a>
         <a href="{{ url('/admin/users') }}" class="btn btn-secondary">Manage Users</a>
         <a href="{{ url('admin/products/create') }}" class="btn btn-success">Create Products</a>
+        <a href="{{ url('admin/category/create') }}" class="btn btn-success">Create Category</a>
     @else
 
         {{-- Cart Section for all users --}}
