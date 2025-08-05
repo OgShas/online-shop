@@ -38,23 +38,5 @@
             </div>
         </div>
     @endif
-    @if (Auth::check())
-        <div class="container mt-4">
-            <div class="d-flex flex-column gap-3 flex-wrap">
-
-                <a href="{{ url('/products') }}" class="btn btn-outline-primary btn-lg px-4">
-                    🛒 Go to Products
-                </a>
-
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-                    <button type="submit" class="btn btn-outline-danger btn-lg px-4">
-                        🔓 Log Out
-                    </button>
-                </form>
-
-            </div>
-        </div>
-    @endif
 @endsection
 
