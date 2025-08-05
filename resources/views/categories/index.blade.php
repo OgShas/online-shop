@@ -14,29 +14,38 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
 </head>
 
-<div class="container mx-auto">
+<div class="container my-5">
     <h1 class="text-center py-4">Categories</h1>
-    @foreach($categories as $category)
-        <div class="col-12 col-md-4 mb-4 text-center">
-            <div class="bg-white shadow rounded-lg p-3 mb-4">
-                <img class="w-full h-48 object-cover rounded-3"
-                     style="height: 150px"
-                     src="{{$category->image_url}}"
-                     alt="{{$category->name}}"
-                >
-                @if(Auth::check() && \Illuminate\Support\Facades\Auth::user()->is_admin)
-                <div class="bg-white shadow rounded-lg p-3 mb-4">
-                    <h5 class="text-lg font-bold">{{ $category->name }}</h5>
-                    <p class="text-gray-700">{{ $category->description }}</p>
-                    <a href="{{ route('admin.category.edit', $category->id) }}">Edit Category</a>
-                    <form action="{{route('admin.category.destroy', $category->id)}}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit">Delete Product</button>
-                    </form>
+    <div class="row">
+        @foreach($categories as $category)
+            <div class="col-12 col-md-4 mb-4">
+                <div class="card shadow-sm rounded-lg h-100 text-center">
+                    <img
+                        src="{{ $category->image_url }}"
+                        class="card-img-top rounded-3"
+                        alt="{{ $category->name }}"
+                        style="height: 150px; object-fit: cover;"
+                    >
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <div>
+                            <h5 class="card-title fw-bold">{{ $category->name }}</h5>
+                            <p class="card-text text-muted">{{ $category->description }}</p>
+                        </div>
+
+                        @if(Auth::check() && \Illuminate\Support\Facades\Auth::user()->is_admin)
+                            <div class="mt-3">
+                                <a href="{{ route('admin.category.edit', $category->id) }}" class="btn btn-sm btn-outline-primary me-2">Edit Category</a>
+                                <form action="{{ route('admin.category.destroy', $category->id) }}" method="POST" class="d-inline">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure?')">Delete Category</button>
+                                </form>
+                            </div>
+                        @endif
+                    </div>
                 </div>
-                @endif
             </div>
-        </div>
-    @endforeach
+        @endforeach
+    </div>
 </div>
+

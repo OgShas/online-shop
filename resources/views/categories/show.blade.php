@@ -14,19 +14,23 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
 </head>
 
-<div class="container mx-auto">
-    <div class="col-12 col-md-4 mb-4">
-        <div
-            class="bg-white border rounded-lg p-4 flex flex-col items-center text-center max-w-sm mx-auto">
-            <img
-                class="w-full h-40 object-cover rounded-3 mb-4"
-                style="height: 150px"
-                src="{{$category->image_url}}"
-                alt="{{$category->name}}"
-            >
-            <h5 class="text-lg font-bold">{{ $category->name }}</h5>
-            <p class="text-gray-700">{{ $category->description }}</p>
-            <a href="{{ route('categories.index') }}">View All Category</a>
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="card shadow-sm border rounded-lg text-center">
+                <img
+                    src="{{ $category->image_url }}"
+                    class="card-img-top rounded-3"
+                    alt="{{ $category->name }}"
+                    style="height: 150px; object-fit: cover;"
+                >
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">{{ $category->name }}</h5>
+                    <p class="card-text text-muted">{{ $category->description }}</p>
+                    <a href="{{ route('categories.index') }}" class="btn btn-outline-secondary btn-sm">View All Categories</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
