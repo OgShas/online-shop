@@ -14,28 +14,36 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
 </head>
 
-<div class="container mx-auto">
-    <div class="col-12 col-md-4 mb-4">
-        <div
-            class="bg-white border rounded-lg p-4 flex flex-col items-center text-center max-w-sm mx-auto">
-            <img
-                class="w-full h-40 object-cover rounded-3 mb-4"
-                style="height: 150px"
-                src="{{ $product->image_url }}"
-                alt="{{ $product->name }}"
-            >
-            <h5 class="text-lg font-bold">{{ $product->name }}</h5>
-            <p class="text-gray-700">{{ $product->description }}</p>
-            <p class="text-gray-300 font-bold">{{ $product->price }}</p>
-            <form action="{{route('cart.store')}}" method="POST">
-                @csrf
-                @if(Auth::check() && !Auth::user()->is_admin)
-                    <input type="hidden" name="product_id" value="{{$product->id}}">
-                    <input type="number" name="quantity" value="1" min="1">
-                    <button type="submit">Add to Cart</button>
-                @endif
-            </form>
-            <a href="{{ route('products.index') }}">View All Product</a>
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="card shadow-sm border rounded-lg text-center">
+                <img
+                    src="{{ $product->image_url }}"
+                    class="card-img-top rounded-3"
+                    alt="{{ $product->name }}"
+                    style="height: 150px; object-fit: cover;"
+                >
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">{{ $product->name }}</h5>
+                    <p class="card-text text-muted">{{ $product->description }}</p>
+                    <p class="card-text fw-bold text-primary fs-5">{{ $product->price }}</p>
+
+                    @if(Auth::check() && !Auth::user()->is_admin)
+                        <form action="{{route('cart.store')}}" method="POST" class="mb-3">
+                            @csrf
+                            <input type="hidden" name="product_id" value="{{$product->id}}">
+                            <div class="input-group justify-content-center" style="max-width: 120px; margin: 0 auto;">
+                                <input type="number" name="quantity" value="1" min="1" class="form-control text-center" aria-label="Quantity">
+                                <button type="submit" class="btn btn-primary">Add to Cart</button>
+                            </div>
+                        </form>
+                    @endif
+
+                    <a href="{{ route('products.index') }}" class="btn btn-outline-secondary btn-sm">View All Products</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
