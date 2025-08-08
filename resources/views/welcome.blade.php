@@ -25,7 +25,21 @@
                     <a href="{{ route('products.index') }}" class="btn btn-outline-light mt-2 px-4 py-2">Shop Now</a>
                 </div>
             </div>
-
+            <!-- Weather Check Form -->
+            <section class="mb-5">
+                <h2 class="text-center mb-4">Check Weather by Country</h2>
+                <form id="weatherForm" class="d-flex justify-content-center gap-2 flex-wrap">
+                    <input
+                        type="text"
+                        name="country"
+                        placeholder="Enter country"
+                        class="form-control form-control-lg"
+                        style="max-width: 400px;"
+                        required
+                    >
+                    <button type="submit" class="btn btn-primary btn-lg">Check Weather</button>
+                </form>
+            </section>
             <!-- Featured Products -->
             <section class="mb-5">
                 <h2 class="text-center mb-4">Featured Products</h2>
