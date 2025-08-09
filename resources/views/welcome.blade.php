@@ -25,21 +25,42 @@
                     <a href="{{ route('products.index') }}" class="btn btn-outline-light mt-2 px-4 py-2">Shop Now</a>
                 </div>
             </div>
+
             <!-- Weather Check Form -->
-            <section class="mb-5">
+            <section class="mb-5" id="weather-app">
                 <h2 class="text-center mb-4">Check Weather by Country</h2>
-                <form id="weatherForm" class="d-flex justify-content-center gap-2 flex-wrap">
-                    <input
-                        type="text"
-                        name="country"
-                        placeholder="Enter country"
-                        class="form-control form-control-lg"
-                        style="max-width: 400px;"
-                        required
-                    >
-                    <button type="submit" class="btn btn-primary btn-lg">Check Weather</button>
-                </form>
+
+                <div class="d-flex justify-content-center">
+                    <input type="text" v-model="city" placeholder="Enter country or city"
+                           class="form-control w-50 me-2">
+                    <button @click="checkWeather" class="btn btn-primary">Check Weather</button>
+                </div>
             </section>
+
+            <script src="https://unpkg.com/vue@3"></script>
+
+            <script>
+                const {createApp} = Vue;
+
+                createApp({
+                    data() {
+                        return {
+                            city: ''
+                        };
+                    },
+                    methods: {
+                        checkWeather() {
+                            if (this.city.trim() === '') {
+                                alert('Please enter a city or country');
+                                return;
+                            }
+                            // Redirect to Laravel route
+                            window.location.href = `/weather/${encodeURIComponent(this.city)}`;
+                        }
+                    }
+                }).mount('#weather-app');
+            </script>
+
             <!-- Featured Products -->
             <section class="mb-5">
                 <h2 class="text-center mb-4">Featured Products</h2>
