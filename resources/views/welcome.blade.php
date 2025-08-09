@@ -37,8 +37,6 @@
                 </div>
             </section>
 
-            <script src="https://unpkg.com/vue@3"></script>
-
             <script>
                 const {createApp} = Vue;
 
@@ -54,7 +52,6 @@
                                 alert('Please enter a city or country');
                                 return;
                             }
-                            // Redirect to Laravel route
                             window.location.href = `/weather/${encodeURIComponent(this.city)}`;
                         }
                     }
