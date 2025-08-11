@@ -27,18 +27,31 @@
             </div>
 
             <!-- Weather Check Form -->
-            <section class="mb-5" id="weather-app">
-                <h2 class="text-center mb-4">Check Weather by Country</h2>
-
-                <div class="d-flex justify-content-center">
-                    <input type="text" v-model="city" placeholder="Enter country or city"
-                           class="form-control w-50 me-2">
-                    <button @click="checkWeather" class="btn btn-primary">Check Weather</button>
+            <section id="weather-app" class="container my-5">
+                <div class="card shadow-sm p-4">
+                    <h4 class="mb-3 text-center">🌤 Weather Check</h4>
+                    <div class="input-group">
+                        <input
+                            v-model="city"
+                            type="text"
+                            class="form-control"
+                            placeholder="Enter city or country"
+                        />
+                        <button
+                            class="btn btn-primary"
+                            type="button"
+                            @click="checkWeather"
+                        >
+                            Check Weather
+                        </button>
+                    </div>
                 </div>
             </section>
 
+            <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+
             <script>
-                const {createApp} = Vue;
+                const { createApp } = Vue;
 
                 createApp({
                     data() {
